@@ -87,7 +87,10 @@ export class Agent {
     this.contextManager.addUserMessage(userMessage);
 
     let iterationCount = 0;
-    const maxIterations = 20;
+    // Max iterations per user task. Higher = больше шагов, но медленнее.
+    // Значение 35 даёт достаточно действий для сложных задач (несколько откликов,
+    // заказ еды и т.п.), но не даёт агенту бесконечно «топтаться».
+    const maxIterations = 50;
 
     while (iterationCount < maxIterations) {
       iterationCount++;
